@@ -1,13 +1,13 @@
-import Button from "./Button/Button";
-import Menu from "./Menu/Menu";
+import Button from "../Button/Button";
+import Menu from "../Menu/Menu";
 
 const Header = () => {
     return (
         <div>
             Header
-            
-            <Button />
-            <Menu />
+        
+        <Button />
+        <Menu />
 
         </div>
     )
