@@ -1,9 +1,9 @@
 .regionPopup {
-    position: absolute;
+    position: fixed;
     z-index: 1;
 }
 
-.overlay {
+.regionOverlay {
     position: absolute;
     height: 50vh;
     width: 50vw;

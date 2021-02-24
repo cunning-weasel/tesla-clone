@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import "./App.css";
 import Header from "./Components/Header/Header";
 import Menu from "./Components/Menu/Menu";
@@ -10,52 +10,58 @@ import ModelX from "./Components/ModelX/ModelX";
 import ModelY from "./Components/ModelY/ModelY";
 import Charging from "./Components/Charging/Charging";
 import RegionPopup from "./Components/RegionPopup/RegionPopup";
+import TeslaAccount from "./Components/TeslaAccount/TeslaAccount";
 import { Route } from "react-router-dom";
 
 function App() {
-  // popup state
-  const [regionPopupVisible, setRegionPopupVisible] = useState(false);
-
-  // call this func below
-  const closeRegionPopup = () => {
-    setRegionPopupVisible(false);
-  }
+  // regionPopup logic
+  // need useEffect - should trigger on page start -start with setTimeout
+  const [showPopup, setShowPopup] = useState(false);
   
-  // login state
-  // const [user, setUser] = useState(null);
 
+  useEffect(() => {
+    setTimeout(() => {
+      setShowPopup(true);
+    }, 1000);
+  }, []);
+
+  // login logic
+  // const [login, setLogin] = useState(false);
 
   return (
     <div className="App">
+      {/* RegionPopup */}
+      <RegionPopup
+        trigger={showPopup}
+        setTrigger={setShowPopup}
+      />
 
-
-      
-      <button onClick={() => setRegionPopupVisible()}></button>
-      {regionPopupVisible && <RegionPopup />}
-      
-
-      {/* Nav - can just do in header file? */}
+      {/* Nav */}
       <Header />
       <Menu />
-      <Route path="/models" component={ModelS}>
+      <Route path="/models">
         <ModelS />
       </Route>
-      <Route path="/model3" component={Model3}>
+      <Route path="/model3">
         <Model3 />
       </Route>
-      <Route path="/modelx" component={ModelX}>
+      <Route path="/modelx">
         <ModelX />
       </Route>
-      <Route path="/modely" component={ModelY}>
+      <Route path="/modely">
         <ModelY />
       </Route>
-      <Route path="/charging" component={Charging}>
+      <Route path="/charging">
         <Charging />
+      </Route>
+
+      <Route path="/oauth...">
+        <TeslaAccount />
       </Route>
 
       {/* Body and sub-pages */}
       <Body />
-      
+
       {/* Footer */}
       <Footer />
     </div>

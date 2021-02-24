@@ -3,6 +3,12 @@ import Menu from "../Menu/Menu";
 import "./Header.css";
 
 const Header = () => {
+
+
+
+
+
+
   return (
     <div className="header">
       <Link to="/">LOGO</Link>
@@ -24,3 +30,4 @@ const Header = () => {
 };
 
 export default Header;
+
