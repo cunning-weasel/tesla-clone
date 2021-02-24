@@ -15,17 +15,15 @@ import { Route } from "react-router-dom";
 
 function App() {
   // regionPopup logic
-  // need useEffect - should trigger on page start -start with setTimeout
-  const [showPopup, setShowPopup] = useState(false);
-  
+  const [showPopup, setShowPopup] = useState(true);
 
-  useEffect(() => {
-    setTimeout(() => {
-      setShowPopup(true);
-    }, 1000);
-  }, []);
+  // useEffect(() => {
+  //   // setTimeout(() => {
+  //     setShowPopup(true);
+  //   // }, 1000);
+  // }, );
 
-  // login logic
+  // TeslaAccount logic
   // const [login, setLogin] = useState(false);
 
   return (
