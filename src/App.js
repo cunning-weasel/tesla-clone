@@ -17,12 +17,7 @@ function App() {
   // regionPopup logic
   const [showPopup, setShowPopup] = useState(true);
 
-  // useEffect(() => {
-  //   // setTimeout(() => {
-  //     setShowPopup(true);
-  //   // }, 1000);
-  // }, );
-
+  
   // TeslaAccount logic
   // const [login, setLogin] = useState(false);
 
@@ -30,8 +25,8 @@ function App() {
     <div className="App">
       {/* RegionPopup */}
       <RegionPopup
-        trigger={showPopup}
-        setTrigger={setShowPopup}
+        prompt={showPopup}
+        setPrompt={setShowPopup}
       />
 
       {/* Nav */}
