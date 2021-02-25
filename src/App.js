@@ -1,5 +1,5 @@
-import React, { useState, useEffect } from "react";
-import "./App.css";
+import React, { useState } from "react";
+import { Route } from "react-router-dom";
 import Header from "./Components/Header/Header";
 import Menu from "./Components/Menu/Menu";
 import Footer from "./Components/Footer/Footer";
@@ -11,13 +11,19 @@ import ModelY from "./Components/ModelY/ModelY";
 import Charging from "./Components/Charging/Charging";
 import RegionPopup from "./Components/RegionPopup/RegionPopup";
 import TeslaAccount from "./Components/TeslaAccount/TeslaAccount";
-import { Route } from "react-router-dom";
+import "./App.css";
+
+// ask Maxim - how does google crawl SPA like React, 
+// if google spider-bots can read all js/css, isn't it long?
+// especially so with heavy client-side rendering?
+// doesn't it eat indexing budget for js-heavy, client-
+// rendering? 
 
 function App() {
   // regionPopup logic
   const [showPopup, setShowPopup] = useState(true);
-
   
+
   // TeslaAccount logic
   // const [login, setLogin] = useState(false);
 

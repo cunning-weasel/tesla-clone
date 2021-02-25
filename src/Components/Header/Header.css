@@ -14,12 +14,11 @@
     color: black;
 }
 
-/* style links */
-
-/* add logo pic */
-
 .mainHeaderLinks {
     display: flex;
     column-gap: 15px;
 }
 
+/* add logo pic */
+
+/* menu */

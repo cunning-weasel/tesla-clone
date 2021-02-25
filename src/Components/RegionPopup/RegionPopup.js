@@ -9,10 +9,12 @@ const RegionPopup = (props) => {
           X
           </button>
         <h1>Select your region</h1>
-        <h4>Europes</h4>
-        <Link>...</Link>
+        <h4>Europe</h4>
+        <Link>European-country</Link>
         <h4>Africa</h4>
-        <Link>...</Link>
+        <Link>African-country</Link>
+        <h4>South-America</h4>
+        <Link>South-American-country</Link>
       </div>
     </div>
   ));
