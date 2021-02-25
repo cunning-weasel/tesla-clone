@@ -13,12 +13,6 @@ import RegionPopup from "./Components/RegionPopup/RegionPopup";
 import TeslaAccount from "./Components/TeslaAccount/TeslaAccount";
 import "./App.css";
 
-// ask Maxim - how does google crawl SPA like React, 
-// if google spider-bots can read all js/css, isn't it long?
-// especially so with heavy client-side rendering?
-// doesn't it eat indexing budget for js-heavy, client-
-// rendering? 
-
 function App() {
   // regionPopup logic
   const [showPopup, setShowPopup] = useState(true);
