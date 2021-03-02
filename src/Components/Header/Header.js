@@ -3,6 +3,18 @@ import Menu from "../Menu/Menu";
 import "./Header.css";
 
 const Header = () => {
+  // sticky header
+  // let prevPos = window.pageYOffset;
+  // window.onscroll = function () {
+  //   let currentPos = window.pageYOffset;
+  //   // console.log(prevPos + " previous Pos");
+  //   if (prevPos > currentPos) {
+  //     document.getElementById("navbar").style.top = "0";
+  //   } else {
+  //     document.getElementById("navbar").style.top = "-50px";
+  //   }
+  //   prevPos = currentPos;
+  // };
 
   return (
     <div className="header">
@@ -25,4 +37,3 @@ const Header = () => {
 };
 
 export default Header;
-

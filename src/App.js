@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { Route } from "react-router-dom";
 import Header from "./Components/Header/Header";
 import Menu from "./Components/Menu/Menu";
@@ -12,14 +12,24 @@ import Charging from "./Components/Charging/Charging";
 import RegionPopup from "./Components/RegionPopup/RegionPopup";
 import TeslaAccount from "./Components/TeslaAccount/TeslaAccount";
 import "./App.css";
+// export const MessengerPegion = React.createContext(null);   // use for storing user region in state
 
 function App() {
   // regionPopup logic
   const [showPopup, setShowPopup] = useState(true);
   
+  // API call for photos
+  const [setPhotos, setPhotosResponse] = useState([]);
 
-  // TeslaAccount logic
-  // const [login, setLogin] = useState(false);
+  useEffect(async() => {
+    const response = await fetch("https://api.unsplash.com/search/photos/?client_id=n_3d4law7R4NmUNNpOlljbmleTNXMSxykAH1j2lzM_s&query=tesla");
+    let data = await response.json();
+    setPhotosResponse(data);
+    // console.log(data);
+  }, []);
+  
+  // still need to store user region in state - useContext
+  // still need to do TeslaAccount logic 
 
   return (
     <div className="App">
@@ -28,7 +38,7 @@ function App() {
         prompt={showPopup}
         setPrompt={setShowPopup}
       />
-
+      
       {/* Nav */}
       <Header />
       <Menu />
@@ -53,8 +63,12 @@ function App() {
       </Route>
 
       {/* Body and sub-pages */}
-      <Body />
 
+      <Body
+        setPhotos={setPhotos}
+        setPhotosResponse={setPhotosResponse}
+      />
+        
       {/* Footer */}
       <Footer />
     </div>
