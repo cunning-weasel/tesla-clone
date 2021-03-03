@@ -14,7 +14,7 @@ const RegionPopup = (props) => {
     // const storeRegion = (e) => {
     
     // }
-
+    
   return ((props.prompt) && (
     <div className="regionOverlay">
       <div className="regionPopup">
@@ -24,11 +24,11 @@ const RegionPopup = (props) => {
         <h1>Select your region</h1>
         <h4>Europe</h4>
         {/* {props.storeRegion} if user chose region, add link URL to end of URL*/}
-        <Link to="european-country">European-country</Link>
+        <Link to="european-country" onClick={() => props.setPrompt(false)}>European-country</Link>
         <h4>Africa</h4>
-        <Link to="african-country">African-country</Link>
+        <Link to="african-country" onClick={() => props.setPrompt(false)}>African-country</Link>
         <h4>South-America</h4>
-        <Link to="South-American-country">South-American-country</Link>
+        <Link to="South-American-country" onClick={() => props.setPrompt(false)}>South-American-country</Link>
       </div>
     </div>
   ));

@@ -7,6 +7,8 @@
     border: 1px solid;
     background-color: #fff;
     /* backdrop-filter: blur(4px); */
+    /* display: none; */
+    
 }
 
 .regionOverlay {

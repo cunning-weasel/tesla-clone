@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { Route } from "react-router-dom";
+// pull in axios 
 import Header from "./Components/Header/Header";
 import Menu from "./Components/Menu/Menu";
 import Footer from "./Components/Footer/Footer";
@@ -19,18 +20,20 @@ function App() {
   const [showPopup, setShowPopup] = useState(true);
   
   // API call for photos
-  const [setPhotos, setPhotosResponse] = useState([]);
-
+  const [setPhotos, setPhotosResponse] = useState(null);
+  
   useEffect(async() => {
-    const response = await fetch("https://api.unsplash.com/search/photos/?client_id=n_3d4law7R4NmUNNpOlljbmleTNXMSxykAH1j2lzM_s&query=tesla");
+    // refactor for axios to pull data in 
+    const response = await fetch("https://api.unsplash.com/search/photos/?client_id=n_3d4law7R4NmUNNpOlljbmleTNXMSxykAH1j2lzM_s&query=tesla&orientation=landscape");
     let data = await response.json();
     setPhotosResponse(data);
     // console.log(data);
+
   }, []);
   
   // still need to store user region in state - useContext
   // still need to do TeslaAccount logic 
-
+  
   return (
     <div className="App">
       {/* RegionPopup */}
@@ -67,6 +70,7 @@ function App() {
       <Body
         setPhotos={setPhotos}
         setPhotosResponse={setPhotosResponse}
+
       />
         
       {/* Footer */}
