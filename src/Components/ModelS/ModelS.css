@@ -1,0 +1,11 @@
+.modelScontainer {
+    border: 3px solid black;
+    display: flex;
+}
+
+.modelScontainer div {
+    flex: 1;
+    /* add space by using margin and all will magically still fit ¯\_(ツ)_/¯  */
+    
+}
+

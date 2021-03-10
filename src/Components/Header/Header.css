@@ -1,11 +1,10 @@
 .header {
     display: flex;
-    position: sticky;
     justify-content: space-between;
     align-items: center;
     padding-top: 10px;
     padding: 10px;
-    /* z-index: ; */
+    z-index: 5000;
 }
 
 /* style links */
@@ -17,6 +16,19 @@
 .mainHeaderLinks {
     display: flex;
     column-gap: 15px;
+}
+
+/* sticky header */
+.scrolled {
+    position: fixed;
+    top: 0;
+    left: 0;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-top: 10px;
+    padding: 10px;
+    z-index: 5000;
 }
 
 /* add logo pic */

@@ -1,34 +1,36 @@
 import { Link } from "react-router-dom";
+import { useContext } from "react";
+import { MessengerPegion } from "../../App"
 import "./RegionPopup.css";
 
-const RegionPopup = (props) => {
+const RegionPopup = () => {
 
-    // event for click outside of popup so it can close
-    // const hidePopupClick = (e) => {
-    //   if (!e.target.className === region) {
-    //     props.setPrompt(false);
-    //   }        
-    // }
-    
-    // => create onClick listeners to store region in the state
+  const { showPopup, dispatch } = useContext(MessengerPegion);
+  
+    // => create localStorage so that on refresh pop-up doesn't trigger - store in state???
     // const storeRegion = (e) => {
     
     // }
     
-  return ((props.prompt) && (
+  return ((showPopup) && (
     <div className="regionOverlay">
       <div className="regionPopup">
-        <button onClick={() => props.setPrompt(false)}>
+        <button onClick={() => dispatch()}>
           X
           </button>
         <h1>Select your region</h1>
         <h4>Europe</h4>
-        {/* {props.storeRegion} if user chose region, add link URL to end of URL*/}
-        <Link to="european-country" onClick={() => props.setPrompt(false)}>European-country</Link>
+        <Link to="european-country" onClick={() => dispatch()}>
+          European-country
+          </Link>
         <h4>Africa</h4>
-        <Link to="african-country" onClick={() => props.setPrompt(false)}>African-country</Link>
+        <Link to="african-country" onClick={() => dispatch()}>
+          African-country
+          </Link>
         <h4>South-America</h4>
-        <Link to="South-American-country" onClick={() => props.setPrompt(false)}>South-American-country</Link>
+        <Link to="South-American-country" onClick={() => dispatch()}>
+          South-American-country
+          </Link>
       </div>
     </div>
   ));

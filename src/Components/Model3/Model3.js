@@ -1,10 +1,20 @@
+const Model3 = (props) => {
+  return (
+    <div className="">
+      <h1>Model 3</h1>
+      <h2>Order Online for Touchless Delivery</h2>
 
-const Model3 = () => {
-    return (
-        <div>
-            Model 3 lives here
-        </div>
-    )
-}
+        <li>
+
+
+        </li>
+
+      <div>
+        <button>CUNSTOM ORDER</button>
+        <button>SOmething SEOMTHING..</button>
+      </div>
+    </div>
+  );
+};
 
 export default Model3;

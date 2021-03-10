@@ -4,11 +4,10 @@ import "./Body.css";
 
 const Body = (props) => {
   // end point - props.setPhotos.results.urls.full;
-
+  
   // can useContext for all this state shenanigans - and import func for fetching for different pages/ sub-pages
-
+  
   const [photos, setPhotos] = useState([]);
-
   useEffect(() => {
     if (props.setPhotos === null) {
       return;
@@ -23,27 +22,28 @@ const Body = (props) => {
     // console.log(arrStore);
     setPhotos(arrStore);
   }, [props.setPhotos]);
-  // console.log(props.setPhotos.results[randomNum]);
 
   // set condition to show user loading screen if data isn't loaded
   if (props.setPhotos === null) {
     return <div className="loader">...Loading mate...</div>;
   } else {
     return (
-      <div className="">
+      <>
+      <div className="body-container">
         <h1>Model S (parallax)</h1>
         <h2>Order Online for Touchless Delivery</h2>
-        {photos.map((image) => (
-          <li key={image.id} className="img">
-            {/* <img src={image.urls.full} /> */}
-            <PhotoComp image={image} />
+        {photos.map((img) => (
+          <li key={img.id} className="img">
+            {/* <img src={img.urls.regular} /> */}
+            <PhotoComp img={img} />
           </li>
         ))}
+        </div>
         <div>
           <button>CUNSTOM ORDER</button>
-          <button>SOmething SEOMTHING..</button>
+          <button>Something Something..</button>
         </div>
-      </div>
+      </>
     );
   }
 };

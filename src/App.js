@@ -1,6 +1,6 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useRef, useReducer } from "react";
 import { Route } from "react-router-dom";
-// pull in axios 
+// pull in axios
 import Header from "./Components/Header/Header";
 import Menu from "./Components/Menu/Menu";
 import Footer from "./Components/Footer/Footer";
@@ -13,35 +13,66 @@ import Charging from "./Components/Charging/Charging";
 import RegionPopup from "./Components/RegionPopup/RegionPopup";
 import TeslaAccount from "./Components/TeslaAccount/TeslaAccount";
 import "./App.css";
-// export const MessengerPegion = React.createContext(null);   // use for storing user region in state
+export const MessengerPegion = React.createContext(null); // use for storing user region in state
 
 function App() {
   // regionPopup logic
-  const [showPopup, setShowPopup] = useState(true);
+  const popUpRef = useRef();
+
+  const reducer = (state, action) => {
+    return { ...state, showPopup: !state.showPopup };
+  };
   
+  // refactoring popupop useState for useReducer
+  const initialState = {
+    showPopup: true,
+  };
+
+  const [state, dispatch] = useReducer(reducer, initialState);
+  // read local storage with useEffect, then updates state with what I find in localStorage
+  // store region selected in local storage. on next load, can hide the popup
+
+  // click to close outside popup
+  useEffect(() => {
+    if (state.showPopup) {
+      document.addEventListener("click", handleOutsideClick);
+    }
+  }, [state.showPopup]);
+
+  const handleOutsideClick = (e) => {
+    if (!e.target.closest(".regionOverlay")) {
+      dispatch();
+      document.removeEventListener("click", handleOutsideClick);
+    }
+  };
+
   // API call for photos
   const [setPhotos, setPhotosResponse] = useState(null);
-  
-  useEffect(async() => {
-    // refactor for axios to pull data in 
-    const response = await fetch("https://api.unsplash.com/search/photos/?client_id=n_3d4law7R4NmUNNpOlljbmleTNXMSxykAH1j2lzM_s&query=tesla&orientation=landscape");
+
+  useEffect(async () => {
+    // refactor for axios to pull data in
+    const response = await fetch(
+      "https://api.unsplash.com/search/photos/?client_id=n_3d4law7R4NmUNNpOlljbmleTNXMSxykAH1j2lzM_s&query=tesla&orientation=landscape&per_page=20"
+    );
     let data = await response.json();
     setPhotosResponse(data);
-    // console.log(data);
-
+    console.log(data);
   }, []);
-  
+
   // still need to store user region in state - useContext
-  // still need to do TeslaAccount logic 
-  
+  // still need to do TeslaAccount logic
+
   return (
     <div className="App">
-      {/* RegionPopup */}
-      <RegionPopup
-        prompt={showPopup}
-        setPrompt={setShowPopup}
-      />
-      
+      <MessengerPegion.Provider
+        value={{ showPopup: state.showPopup, dispatch }}
+      >
+        <RegionPopup
+        // prompt={showPopup}
+        // setPrompt={setShowPopup}
+        />
+      </MessengerPegion.Provider>
+
       {/* Nav */}
       <Header />
       <Menu />
@@ -65,14 +96,11 @@ function App() {
         <TeslaAccount />
       </Route>
 
-      {/* Body and sub-pages */}
+      {/* Homepage Body */}
+      <Route exact path="/">
+        <Body setPhotos={setPhotos} setPhotosResponse={setPhotosResponse} />
+      </Route>
 
-      <Body
-        setPhotos={setPhotos}
-        setPhotosResponse={setPhotosResponse}
-
-      />
-        
       {/* Footer */}
       <Footer />
     </div>
