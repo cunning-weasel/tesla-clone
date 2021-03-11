@@ -24,7 +24,7 @@
   overflow-y: scroll;
 } */
 
-html {
+html, body {
   scroll-snap-type: y mandatory;
   overflow: auto;
   scroll-behavior: smooth;
@@ -50,5 +50,8 @@ html {
   flex-grow: 1;
   flex-shrink: 0;
   object-fit: cover;
+
+
 }
+
 

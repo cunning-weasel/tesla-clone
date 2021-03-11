@@ -1,0 +1,8 @@
+.teslaaccount {
+    padding: 25px;
+    padding-top: 15px;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    gap: 70px;
+}

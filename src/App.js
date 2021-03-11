@@ -3,7 +3,6 @@ import { Route } from "react-router-dom";
 // pull in axios
 import Header from "./Components/Header/Header";
 import Menu from "./Components/Menu/Menu";
-import Footer from "./Components/Footer/Footer";
 import Body from "./Components/Body/Body";
 import ModelS from "./Components/ModelS/ModelS";
 import Model3 from "./Components/Model3/Model3";
@@ -16,21 +15,29 @@ import "./App.css";
 export const MessengerPegion = React.createContext(null); // use for storing user region in state
 
 function App() {
+
+  // menu logic
+  
+
   // regionPopup logic
   const popUpRef = useRef();
 
   const reducer = (state, action) => {
-    return { ...state, showPopup: !state.showPopup };
+    return { 
+      ...state, 
+      showPopup: !state.showPopup 
+    };
   };
-  
+
   // refactoring popupop useState for useReducer
   const initialState = {
     showPopup: true,
   };
 
-  const [state, dispatch] = useReducer(reducer, initialState);
   // read local storage with useEffect, then updates state with what I find in localStorage
   // store region selected in local storage. on next load, can hide the popup
+
+  const [state, dispatch] = useReducer(reducer, initialState);
 
   // click to close outside popup
   useEffect(() => {
@@ -67,10 +74,7 @@ function App() {
       <MessengerPegion.Provider
         value={{ showPopup: state.showPopup, dispatch }}
       >
-        <RegionPopup
-        // prompt={showPopup}
-        // setPrompt={setShowPopup}
-        />
+        <RegionPopup />
       </MessengerPegion.Provider>
 
       {/* Nav */}
@@ -98,11 +102,13 @@ function App() {
 
       {/* Homepage Body */}
       <Route exact path="/">
-        <Body setPhotos={setPhotos} setPhotosResponse={setPhotosResponse} />
+        <Body 
+          setPhotos={setPhotos} 
+          setPhotosResponse={setPhotosResponse} 
+        />
       </Route>
 
-      {/* Footer */}
-      <Footer />
+      {/* <Footer /> */}
     </div>
   );
 }

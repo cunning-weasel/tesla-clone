@@ -1,10 +1,11 @@
 import { Link } from "react-router-dom";
+import "./TeslaAccount.css";
 
 const TeslaAccount = () => {
   return (
-    <div>
+    <div className="teslaaccount">
       <h1>Sign In</h1>
-      <div>Email Adress</div>
+      <div>Email Address</div>
       <input />
       <div>Password</div>
       <input />

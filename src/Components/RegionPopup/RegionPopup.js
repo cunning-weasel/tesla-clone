@@ -11,24 +11,28 @@ const RegionPopup = () => {
     // const storeRegion = (e) => {
     
     // }
+
+    const handleClick = () => {
+      return dispatch();
+    }
     
   return ((showPopup) && (
     <div className="regionOverlay">
       <div className="regionPopup">
-        <button onClick={() => dispatch()}>
+        <button onClick={handleClick}>
           X
           </button>
         <h1>Select your region</h1>
         <h4>Europe</h4>
-        <Link to="european-country" onClick={() => dispatch()}>
+        <Link to="european-country" onClick={handleClick}>
           European-country
           </Link>
         <h4>Africa</h4>
-        <Link to="african-country" onClick={() => dispatch()}>
+        <Link to="african-country" onClick={handleClick}>
           African-country
           </Link>
         <h4>South-America</h4>
-        <Link to="South-American-country" onClick={() => dispatch()}>
+        <Link to="South-American-country" onClick={handleClick}>
           South-American-country
           </Link>
       </div>

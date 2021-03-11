@@ -4,14 +4,26 @@ const PhotoComp = (props) => {
 
     return (
         <>
-            <img src={props.img.urls.regular} className="imgs" />
+        <div className="imgs" style={{
+            backgroundImage: `url(${props.img.urls.regular})`,
+            backgroundPosition: 'center',
+            backgroundSize: 'cover',
+            backgroundRepeat: 'no-repeat',
+            height: '100vh',
+            width: '100vw',
+            backgroundAttachment: 'fixed',
+            }}>
+        </div>
+                
+            {/* <img src={props.img.urls.regular} className="imgs" />  */}
                 <a
                     target="_blank"
                     href={`https://unsplash.com/@${props.img.user.username}`}
                     className=""
-                >
+                > 
                     {/* {props.img.user.name} */}
-                </a>
+                </a>  
+               
         </>
     )
 }

@@ -1,5 +1,6 @@
 import PhotoComp from "../PhotoComp/PhotoComp";
 import { useEffect, useState } from "react";
+import Footer from "../Footer/Footer";
 import "./Body.css";
 
 const Body = (props) => {
@@ -25,7 +26,7 @@ const Body = (props) => {
 
   // set condition to show user loading screen if data isn't loaded
   if (props.setPhotos === null) {
-    return <div className="loader">...Loading mate...</div>;
+    return <div className="loader" dir="rtl">...Loading mate...</div>;
   } else {
     return (
       <>
@@ -43,6 +44,7 @@ const Body = (props) => {
           <button>CUNSTOM ORDER</button>
           <button>Something Something..</button>
         </div>
+        <Footer />
       </>
     );
   }

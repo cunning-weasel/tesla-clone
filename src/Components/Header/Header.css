@@ -5,6 +5,8 @@
     padding-top: 10px;
     padding: 10px;
     z-index: 5000;
+    background-color: transparent;
+
 }
 
 /* style links */
@@ -16,6 +18,8 @@
 .mainHeaderLinks {
     display: flex;
     column-gap: 15px;
+    flex: 1;
+    justify-content: center;
 }
 
 /* sticky header */
@@ -29,6 +33,8 @@
     padding-top: 10px;
     padding: 10px;
     z-index: 5000;
+    
+    
 }
 
 /* add logo pic */

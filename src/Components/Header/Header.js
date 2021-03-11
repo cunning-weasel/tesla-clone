@@ -4,19 +4,7 @@ import Menu from "../Menu/Menu";
 import "./Header.css";
 
 const Header = () => {
-
-  // // sticky header
-  // let prevPos = window.pageYOffset;
-  // window.onscroll = function () {
-  //   let currentPos = window.pageYOffset;
-  //   // console.log(prevPos + " previous Pos");
-  //   if (prevPos > currentPos) {
-  //     document.getElementsByClassName("header").style.top = "0";
-  //   } else {
-  //     document.getElementsByClassName("header").style.top = "-50px";
-  //   }
-  //   prevPos = currentPos;
-  // };
+  // sticky header
   const [scrolled, setScrolled] = useState(false);
 
   const handleScroll = () => {
@@ -36,6 +24,7 @@ const Header = () => {
   if (scrolled) {
     headerClass.push("scrolled");
   }
+
 
   return (
     <div className={headerClass.join(" ")}>
