@@ -31,18 +31,12 @@ const Body = (props) => {
     return (
       <>
       <div className="body-container">
-        <h1>Model S (parallax)</h1>
-        <h2>Order Online for Touchless Delivery</h2>
         {photos.map((img) => (
           <li key={img.id} className="img">
             {/* <img src={img.urls.regular} /> */}
             <PhotoComp img={img} />
           </li>
         ))}
-        </div>
-        <div>
-          <button>CUNSTOM ORDER</button>
-          <button>Something Something..</button>
         </div>
         <Footer />
       </>

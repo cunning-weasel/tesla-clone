@@ -1,12 +1,13 @@
 .footer {
-    position: fixed;
+    /* position: absolute; */
     bottom: 10px;
     background-color: transparent;
     padding: 0px;
     width: 100%;
     z-index: 100;
     align-content: center;
-    
+    bottom: 0;
+    overflow: hidden;
 }
 
 .footer a {

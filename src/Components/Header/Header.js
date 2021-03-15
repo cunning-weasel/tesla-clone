@@ -15,10 +15,10 @@ const Header = () => {
       setScrolled(false);
     }
   }
-
+  
   useEffect(() => {
     window.addEventListener("scroll", handleScroll);
-  }, [])
+  }, []);
 
   let headerClass = ["header"];
   if (scrolled) {

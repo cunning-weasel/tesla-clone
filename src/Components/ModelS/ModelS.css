@@ -1,6 +1,7 @@
 .modelScontainer {
-    border: 3px solid black;
     display: flex;
+    color: whitesmoke;
+
 }
 
 .modelScontainer div {

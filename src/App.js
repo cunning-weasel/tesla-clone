@@ -13,12 +13,12 @@ import RegionPopup from "./Components/RegionPopup/RegionPopup";
 import TeslaAccount from "./Components/TeslaAccount/TeslaAccount";
 import "./App.css";
 export const MessengerPegion = React.createContext(null); // use for storing user region in state
+export let LoginContext;
 
 function App() {
 
   // menu logic
   
-
   // regionPopup logic
   const popUpRef = useRef();
 
@@ -33,10 +33,9 @@ function App() {
   const initialState = {
     showPopup: true,
   };
-
-  // read local storage with useEffect, then updates state with what I find in localStorage
-  // store region selected in local storage. on next load, can hide the popup
-
+  
+  // TODO - read local storage with useEffect, then updates state with what I find in localStorage
+  // TODO - store region selected in local storage. on next load, can hide the popup
   const [state, dispatch] = useReducer(reducer, initialState);
 
   // click to close outside popup
@@ -52,6 +51,7 @@ function App() {
       document.removeEventListener("click", handleOutsideClick);
     }
   };
+  // end popup logic
 
   // API call for photos
   const [setPhotos, setPhotosResponse] = useState(null);
@@ -59,21 +59,41 @@ function App() {
   useEffect(async () => {
     // refactor for axios to pull data in
     const response = await fetch(
-      "https://api.unsplash.com/search/photos/?client_id=n_3d4law7R4NmUNNpOlljbmleTNXMSxykAH1j2lzM_s&query=tesla&orientation=landscape&per_page=20"
+      "https://api.unsplash.com/search/photos/?client_id=n_3d4law7R4NmUNNpOlljbmleTNXMSxykAH1j2lzM_s&query=tesla&orientation=landscape&per_page=30"
     );
     let data = await response.json();
     setPhotosResponse(data);
-    console.log(data);
+    // console.log(data);
   }, []);
 
-  // still need to store user region in state - useContext
-  // still need to do TeslaAccount logic
+  // TeslaAccount logic - use useContext
+  const [user, setUser] = useState({
+    email: "",
+    password: ""
+  });
+  
+  const [throwErr, setThrowError] = useState("");
+
+  const superWeasel = {
+    email: "weasel@weasel.com",
+    password: "weasel"
+  };
+  
+  LoginContext = React.createContext();
+
+  const Login = (info) => {
+    console.log(info);
+  }
+
+  const Logout = () => {
+    console.log("Logout");
+  }
+  // end TeslaAccount logic
 
   return (
     <div className="App">
       <MessengerPegion.Provider
-        value={{ showPopup: state.showPopup, dispatch }}
-      >
+        value={{ showPopup: state.showPopup, dispatch }}>
         <RegionPopup />
       </MessengerPegion.Provider>
 
@@ -96,9 +116,12 @@ function App() {
         <Charging />
       </Route>
 
-      <Route path="/oauth...">
-        <TeslaAccount />
-      </Route>
+      <LoginContext.Provider 
+        value={{ Login, throwErr }}>
+        <Route path="/oauth...">
+          <TeslaAccount />
+        </Route>
+      </LoginContext.Provider>
 
       {/* Homepage Body */}
       <Route exact path="/">

@@ -4,9 +4,10 @@
     align-items: center;
     padding-top: 10px;
     padding: 10px;
+    /* padding-left: 50px; */
     z-index: 5000;
     background-color: transparent;
-
+    position: absolute;
 }
 
 /* style links */
@@ -26,7 +27,6 @@
 .scrolled {
     position: fixed;
     top: 0;
-    left: 0;
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -34,9 +34,6 @@
     padding: 10px;
     z-index: 5000;
     
-    
 }
-
-/* add logo pic */
 
 /* menu */
