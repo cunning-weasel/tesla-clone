@@ -1,50 +1,60 @@
-/* .imgs {
-    flex-shrink: 0;
-    width: 100vw;
-    height: 100vh;
-} */
+@import url('https://fonts.googleapis.com/css2?family=Merriweather:wght@900&display=swap');
+
+.headerStyles {
+    position: relative;
+    bottom: 0;
+    
+    
+}
 
 .btn1 {
+    box-shadow: 2px 2px 5px rgba(0,0,0,0.100), 5px 5px 10px rgba(0,0,0,0.200), 10px 10px 20px rgba(0,0,0,0.300);
     opacity: 1;
     /* background-color: #303136; */
-
-    background-color: #757575;
-    color: whitesmoke;
-
-
-    width: 20%;
-    padding: 10px 40px;
+    border: none;
+    background-color: white;
+    padding: 20px 50px;
+    margin-right: 20px;
+    text-decoration: none;
     border-radius: 50px;
     text-transform: uppercase;
-
     font-weight: 600;
     cursor: pointer;
     transition: all 0.5s ease-in-out 1s;
     outline: none;
+    position: relative;
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 30px;
+}
 
+.btn2 {
+    opacity: 1;
+    background-color: hsla(0,0%,100%,.5);
+    box-shadow: 2px 2px 5px rgba(0,0,0,0.100), 5px 5px 10px rgba(0,0,0,0.200), 10px 10px 20px rgba(0,0,0,0.300);
+    padding: 20px 50px;
+    text-decoration: none;
+    border: none;
+    border-radius: 50px;
+    text-transform: uppercase;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.5s ease-in-out 1s;
+    outline: none;
     position: relative;
     display: inline-flex;
     justify-content: center;
     align-items: center;
 }
 
-.btn2 {
-    opacity: 1;
-    background-color: hsla(0,0%,100%,.5);
-
-    width: 20%;
-    padding: 10px 40px;
-    border-radius: 50px;
-    text-transform: uppercase;
-
-    font-weight: 600;
-    cursor: pointer;
-    transition: all 0.5s ease-in-out 1s;
-    outline: none;
-
+.imgs {
+    left: 0;
+    bottom: 0;
     position: relative;
-    display: inline-flex;
-    justify-content: center;
-    align-items: center;
-        
+    width: 100%;
+    height: 200px;
+    padding: 50px 50px;
+    line-height: 50px;
+
 }

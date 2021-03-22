@@ -2,6 +2,31 @@ import PhotoComp from "../PhotoComp/PhotoComp";
 import { useEffect, useState } from "react";
 import Footer from "../Footer/Footer";
 import "./Body.css";
+import React, { Component } from 'react'
+
+// class Body extends Component {
+//   constructor(props) {
+//     super(props)
+//      this.state = {
+//          this.photos = photos}
+// }
+
+//   }
+//   render() {
+
+
+
+//     return (
+
+
+
+//       <div>
+        
+//       </div>
+//     )
+//   }
+// }
+
 
 const Body = (props) => {
   // end point - props.setPhotos.results.urls.full;
@@ -32,10 +57,10 @@ const Body = (props) => {
       <>
       <div className="body-container">
         {photos.map((img) => (
-          <li key={img.id} className="img">
+          <div key={img.id} className="img">
             {/* <img src={img.urls.regular} /> */}
             <PhotoComp img={img} />
-          </li>
+          </div>
         ))}
         </div>
         <Footer />

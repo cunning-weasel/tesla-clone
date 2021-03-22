@@ -1,6 +1,5 @@
-import React, { useState, useEffect, useRef, useReducer } from "react";
+import React, { useState, useEffect, useReducer } from "react";
 import { Route } from "react-router-dom";
-// pull in axios
 import Header from "./Components/Header/Header";
 import Menu from "./Components/Menu/Menu";
 import Body from "./Components/Body/Body";
@@ -15,12 +14,33 @@ import "./App.css";
 export const MessengerPegion = React.createContext(null); // use for storing user region in state
 export let LoginContext;
 
+
+// class App extends React.Component {
+
+
+
+// componentDidMount() {
+//    
+// }
+
+
+
+//   render() {
+//     return (
+//       <div>
+        
+//       </div>
+//     )
+//   }
+// }
+
+
 function App() {
 
   // menu logic
   
   // regionPopup logic
-  const popUpRef = useRef();
+  // const popUpRef = useRef();
 
   const reducer = (state, action) => {
     return { 
@@ -44,7 +64,7 @@ function App() {
       document.addEventListener("click", handleOutsideClick);
     }
   }, [state.showPopup]);
-
+  
   const handleOutsideClick = (e) => {
     if (!e.target.closest(".regionOverlay")) {
       dispatch();
@@ -89,6 +109,9 @@ function App() {
     console.log("Logout");
   }
   // end TeslaAccount logic
+
+
+
 
   return (
     <div className="App">
@@ -137,3 +160,4 @@ function App() {
 }
 
 export default App;
+

@@ -16,11 +16,25 @@ const PhotoComp = (props) => {
           height: "100vh",
           width: "100vw",
           backgroundAttachment: "fixed",
+          fontFamily: "Merriweather, serif"
         }}
       >
-        <div className="">
-          <h1>{props.img.user.location}</h1>
-          <h2>{props.img.alt_description}</h2>
+        <div className="headerStyles">
+          <h1
+          style={{
+            color: 'white',
+            textShadow: '2px 2px 5px rgba(0,0,0,0.300), 5px 5px 10px rgba(0,0,0,0.500), 10px 10px 20px rgba(0,0,0,0.700)'
+            
+            
+          }}
+          >{props.img.user.location}</h1>
+          <h2
+            style={{
+              color: 'white',
+              textShadow: '2px 2px 5px rgba(0,0,0,0.300), 5px 5px 10px rgba(0,0,0,0.500), 10px 10px 20px rgba(0,0,0,0.700)'
+
+          }}
+          >{props.img.alt_description}</h2>
         </div>
 
         <div className="">
@@ -29,6 +43,7 @@ const PhotoComp = (props) => {
               target="_blank"
               href={`https://unsplash.com/@${props.img.user.username}`}
               className=""
+              
             >
               {props.img.user.name}
               {console.log(props)}

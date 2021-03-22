@@ -2,18 +2,39 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding-top: 10px;
-    padding: 10px;
-    /* padding-left: 50px; */
-    z-index: 5000;
+    z-index: 2;
     background-color: transparent;
-    position: absolute;
+    position: sticky;
+    top: 0;
+    left: 0;
+    padding: 10px;
+    transition: all 1s linear;
+}
+
+.header2 {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    z-index: 2;
+    background-color: gray;
+    box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.404);
+    position: sticky;
+    top: 0;
+    left: 0;
+    padding: 10px;
+    /* add color and shadow */
+    transition: all 1s linear;
+    animation: name duration timing-function delay iteration-count direction fill-mode;
 }
 
 /* style links */
-.header a {
+.header a, .header2 a {
     text-decoration: none;
     color: black;
+}
+
+.header2 a {
+    color: white;
 }
 
 .mainHeaderLinks {
@@ -24,7 +45,7 @@
 }
 
 /* sticky header */
-.scrolled {
+/* .scrolled {
     position: fixed;
     top: 0;
     display: flex;
@@ -33,7 +54,11 @@
     padding-top: 10px;
     padding: 10px;
     z-index: 5000;
-    
-}
+} */
 
 /* menu */
+
+.menuBtn {
+    margin-left: 10px;
+
+}
